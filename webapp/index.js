@@ -54,7 +54,8 @@ app.post("/addHistory", history.addHistory);
 app.get("/getHistory", history.getHistory);
 app.get("/listHistory", history.renderGetHistory);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000
+;
 
 app.listen(PORT, function() {
     console.log(`App listening on port ${PORT}`);
