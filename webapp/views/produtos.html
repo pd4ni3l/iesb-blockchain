@@ -34,8 +34,8 @@
     
                 <ul class="pure-menu-list">
                     <li class="pure-menu-item"><a href="/api/auth/dashboard" class="pure-menu-link">Home</a></li>
-                    <li class="pure-menu-item"><a href="/addProducts" class="pure-menu-link">Cadastrar Paciente</a></li>
-                    <li class="pure-menu-item"><a href="/getProducts" class="pure-menu-link">Lista Pacientes</a></li>
+                    <li class="pure-menu-item"><a href="/addProducts" class="pure-menu-link">Cadastrar Produtos</a></li>
+                    <li class="pure-menu-item"><a href="/getProducts" class="pure-menu-link">Lista Produtos</a></li>
                     <li class="pure-menu-item"><a href="/addStage" class="pure-menu-link">Cadastrar Etapa</a></li>
                     <li class="pure-menu-item"><a href="/getStages" class="pure-menu-link">Lista Etapas</a></li>
                     <li class="pure-menu-item"><a href="/addHistory" class="pure-menu-link">Cadastrar Histórico</a></li>
@@ -47,7 +47,7 @@
 
         <div id="main">
             <div class="header">
-                <h1> Cadastro de Pacientes </h1>
+                <h1> Cadastro de Produtos </h1>
             </div>
 
             <div class="content" style="margin-top: 5%">
@@ -55,16 +55,12 @@
                     <div class="col-md-7">
                         <form id="addProducts">
                             <div class="form-group">
-                                <label for="paciente">Paciente:</label>
-                                <input type="text" class="form-control" id="paciente" placeholder="Nome do paciente" required>
+                                <label for="produto">Produto:</label>
+                                <input type="text" class="form-control" id="produto" placeholder="Descrição do produto" required>
                             </div>
                             <div class="form-group">
-                                <label for="cpf">CPF:</label>
-                                <input type="number" min="1" class="form-control" id="cpf" placeholder="CPF do paciente" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="endereco">Endereço:</label>
-                                <input type="text" min="1" class="form-control" id="endereco" placeholder="Endereço do paciente" required>
+                                <label for="preco">Preço:</label>
+                                <input type="number" min="1" class="form-control" id="preco" placeholder="Preço do produto" required>
                             </div>
         
                             <button id="load" type="submit" class="btn btn-primary btn-block">Adicionar</button>
