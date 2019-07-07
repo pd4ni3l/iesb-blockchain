@@ -18,26 +18,28 @@ function addProduct() {
     $('#load').attr('disabled', 'disabled');
 
     // resgata os dados do formulário
-    let produto = $("#produto").val();
-    let preco = $("#preco").val();
+    let nome = $("#nome").val();
+    let endereco = $("#endereco").val();
+    let cpf = $("#cpf").val();
 
     // envia a requisição para o servidor
-    $.post("/addProducts", {produto: produto, preco: preco}, function(res) {
+    $.post("/addProducts", {nome: nome, endereco: endereco, cpf: cpf}, function(res) {
         
         console.log(res);
         // verifica resposta do servidor
         if (!res.error) {
             console.log("*** Views -> js -> produtos.js -> addProduct: ***", res.msg);            
             // limpa dados do formulário
-            $("#produto").val("");
-            $("#preco").val("");
+            $("#nome").val("");
+            $("endereco").val("");
+            $("#cpf").val("");
             
             // remove atributo disabled do botao
             $('#load').attr('disabled', false);
 
-            alert("Seu produto foi cadastrado com sucesso");
+            alert("Seu paciente foi cadastrado com sucesso");
         } else {
-            alert("Erro ao cadastrar produto. Por favor, tente novamente mais tarde. " + res.msg);
+            alert("Erro ao cadastrar paciente. Por favor, tente novamente mais tarde. " + res.msg);
         }
 
     });

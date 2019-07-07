@@ -30,8 +30,9 @@ contract MyContract {
     // estrutura para manter dados do produto
     struct Product {
         uint id;
-        string desc;
-        uint price;
+        string nome;
+        string endereco;
+        uint cpf;
         address owner;
     }
 
@@ -79,25 +80,28 @@ contract MyContract {
     }
 
     // função para cadastrar um produto
-    function addProduct(string memory _desc, uint _price) public {
-        require(bytes(_desc).length >= 1, "Invalid name");
-        require(_price > 0, "Price must be higher than zero");
+    function addProduct(string memory _nome, string memory _endereco, uint _cpf) public {
+        require(bytes(_nome).length >= 1, "Nome invalido");
+        require(bytes(_endereco).length >= 1, "Endereco invalido");
+        require(_cpf > 0, "CPF invalido");
 
-        products[lastId] = Product(lastId, _desc, _price, msg.sender);
+        products[lastId] = Product(lastId, _nome, _endereco, _cpf, msg.sender);
         productsIds.push(lastId);
         lastId++;
         emit productRegistered(lastId);
     }
 
-    function updateProduct(uint _productId, string memory _newDesc, uint _newPrice) public {
-        require(bytes(_newDesc).length >= 1, "Invalid name");
-        require(_newPrice > 0, "New price must be higher than zero");
+    function updateProduct(uint _productId, string memory _newNome, string memory _newEndereco, uint _newCpf) public {
+        require(bytes(_newNome).length >= 1, "Nome novo invalido");
+        require(bytes(_newEndereco).length >= 1, "Endereco novo invalido");
+        require(_newCpf > 0, "CPF novo invalido");
 
         Product storage prod = products[_productId];
 
         require(prod.owner == msg.sender, "Only the owner can update the product");
-        prod.desc = _newDesc;
-        prod.price = _newPrice;
+        prod.nome = _newNome;
+        prod.endereco = _newEndereco;
+        prod.cpf = _newCpf;
 
         emit productUpdated(_productId, "Produto atualizado com successo");
     }
@@ -106,6 +110,7 @@ contract MyContract {
     function productInfo(uint _id) public view
         returns(
             uint,
+            string memory,
             string memory,
             address,
             uint
@@ -116,27 +121,29 @@ contract MyContract {
 
             return (
                 product.id,
-                product.desc,
+                product.nome,
+                product.endereco,
                 products[_id].owner,
-                product.price
+                product.cpf
             );
     }
 
     // função que retorna todos os produtos de um usuário
-    function getProducts() public view returns(uint[] memory, string[] memory, address[] memory, uint[] memory) {
+    function getProducts() public view returns(uint[] memory, string[] memory, string[] memory, uint[] memory, address[] memory) {
 
         uint[] memory ids = productsIds;
 
         uint[] memory idsProducts = new uint[](ids.length);
-        string[] memory names = new string[](ids.length);
+        string[] memory nomes = new string[](ids.length);
+        string[] memory enderecos = new string[](ids.length);
+        uint[] memory cpfs = new uint[](ids.length);
         address[] memory owners = new address[](ids.length);
-        uint[] memory prices = new uint[](ids.length);
 
         for (uint i = 0; i < ids.length; i++) {
-            (idsProducts[i], names[i], owners[i], prices[i]) = productInfo(i);
+            (idsProducts[i], nomes[i], enderecos[i], owners[i], cpfs[i]) = productInfo(i);
         }
 
-        return (idsProducts, names, owners, prices);
+        return (idsProducts, nomes, enderecos, cpfs, owners);
     }
 
     function isProductInHistory(uint _id) public view returns (bool) {
@@ -201,7 +208,7 @@ contract MyContract {
 
         for (uint i = 0; i < ids.length; i++) {
             (prodsIds[i], stageDesc[i], dates[i], addrs[i]) = HistoryInfo(i);
-            (, productsNames[i], ,) = productInfo(prodsIds[i]);
+            (, productsNames[i], , ,) = productInfo(prodsIds[i]);
         }
 
         return (productsNames, stageDesc, dates, addrs);

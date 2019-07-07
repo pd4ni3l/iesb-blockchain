@@ -61,7 +61,7 @@ module.exports = {
 
                 let produtos = [];
                 for (i = 0; i < prod['0'].length; i++) {
-                    produtos.push({ 'id': +prod['0'][i], 'produto': prod['1'][i], 'addr': prod['2'][i], 'preco': +prod['3'][i] });
+                    produtos.push({ 'id': +prod['0'][i], 'nome': prod['1'][i], 'endereco': prod['2'][i], 'cpf': +prod['3'][i], 'addr': prod['4'][i] });
                 }
 
                 console.log("produtos", produtos);
@@ -81,11 +81,12 @@ module.exports = {
             res.redirect('/');
             res.end();
         } else {
-            console.log("*** ProductsApi -> AddProducts ***");
+            console.log("*** ProductsApi -> AddProducts ADD***");
             console.log(req.body);
 
-            let produto = req.body.produto;
-            let preco   = req.body.preco;
+            let nome = req.body.nome;
+            let endereco = req.body.endereco;
+            let cpf = req.body.cpf;
             let userAddr = req.session.address;
             let pass     = req.session.password;
 
@@ -93,11 +94,11 @@ module.exports = {
                 let accountUnlocked = await web3.eth.personal.unlockAccount(userAddr, pass, null)
                 if (accountUnlocked) {
 
-                    await MyContract.methods.addProduct(produto, preco)
+                    await MyContract.methods.addProduct(nome, endereco, cpf)
                         .send({ from: userAddr, gas: 3000000 })
                         .then(function(result) {
                             console.log(result);
-                            return res.send({ 'error': false, 'msg': 'Produto cadastrado com sucesso.'});  
+                            return res.send({ 'error': false, 'msg': 'Paciente cadastrado com sucesso.'});  
                         })
                         .catch(function(err) {
                             console.log(err);
@@ -117,12 +118,13 @@ module.exports = {
         } else {
         
             let productId = req.body.productId;
-            let newDesc   = req.body.newDesc;
-            let newPrice  = req.body.newPrice;
+            let newNome   = req.body.newNome;
+            let newEndereco = req.body.newEndereco;
+            let newCpf  = req.body.newCpf;
             let userAddr  = req.session.address;
             let pass      = req.session.password;
 
-            console.log("apis -> products -> updateProduct: ", userAddr, productId, newDesc, newPrice);
+            console.log("apis -> products -> updateProduct: ", userAddr, productId, newNome, newEndereco, newCpf);
 
             try {
                 let accountUnlocked = await web3.eth.personal.unlockAccount(userAddr, pass, null)
@@ -133,7 +135,7 @@ module.exports = {
                         .send({ from: userAddr, gas: 3000000 })
                         .then(receipt => {
                             console.log(receipt);
-                            return res.send({ 'error': false, 'msg': 'Produto atualizado com sucesso.'}); 
+                            return res.send({ 'error': false, 'msg': 'Paciente atualizado com sucesso.'}); 
                         })
                         .catch((err) => {
                             console.log(err);

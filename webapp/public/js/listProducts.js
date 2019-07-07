@@ -22,12 +22,14 @@ function getProducts() {
             for (let i = 0; i < produtos.length; i++) {
                 let newRow = $("<tr>");
                 let cols = "";
-                let desc = produtos[i].produto;
-                let preco = produtos[i].preco;
+                let nome = produtos[i].nome;
+                let endereco = produtos[i].endereco;
+                let cpf = produtos[i].cpf;
                 let owner = produtos[i].addr;
 
-                cols += `<td> ${desc} </td>`;
-                cols += `<td> ${preco} </td>`;
+                cols += `<td> ${nome} </td>`;
+                cols += `<td> ${endereco} </td>`;
+                cols += `<td> ${cpf} </td>`;
                 cols += `<td> ${owner.substring(1, 10)} </td>`;
                 cols += `<td align="center"> 
                     <span style="font-size: 1em; color: Dodgerblue; cursor: pointer; ">
