@@ -29,7 +29,7 @@ function addStage(event) {
 
     // verifica se há checkboxes selecionados
     if (productsIds.length === 0) {
-        alert("Nenhum produto selecionado");
+        alert("Nenhum paciente selecionado");
         $('#load').attr('disabled', false);
         return;
     }
@@ -82,8 +82,8 @@ function getProducts() {
                         <input class="form-check-input" type="checkbox" name="produto" value="${produtos[i].id}" id="addToStageCheck">
                     </div>
                 </td>`;
-                cols += `<td> ${produtos[i].produto} </td>`;
-                cols += `<td> ${produtos[i].preco} </td>`;
+                cols += `<td> ${produtos[i].nome} </td>`;
+                cols += `<td> ${produtos[i].cpf} </td>`;
                 
                 newRow.append(cols);
                 $("#products-table").append(newRow);

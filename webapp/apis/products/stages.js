@@ -127,7 +127,7 @@ async function productInfo(productsIds, userAddr) {
                 let productObj = {}
                 productObj.productID = +res['0'];
                 productObj.produto   = res['1'];
-                productObj.preco     = +res['3'];
+                productObj.preco     = +res['4'];
                 produtos.push(productObj);
             })
             .catch(err => {

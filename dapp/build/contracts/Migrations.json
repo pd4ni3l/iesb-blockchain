@@ -1377,12 +1377,12 @@
     "8995": {
       "events": {},
       "links": {},
-      "address": "0x22ae686ABf7bC51672934B0e5D99683A427B1fDC",
-      "transactionHash": "0xbc746c88bfcafbb2d56d4323aa921a58fb68af28e3a8cc8aca4a1b50db87106c"
+      "address": "0xbD7b8103b85645bda5e56D4cfDd23BDC579F7686",
+      "transactionHash": "0x7fe8184dd29fb3bc388ed311b479592d01ab525b8cdc6d511f15f0ffff5ce88c"
     }
   },
   "schemaVersion": "3.0.11",
-  "updatedAt": "2019-07-06T23:36:20.556Z",
+  "updatedAt": "2019-07-07T23:49:45.908Z",
   "devdoc": {
     "methods": {}
   },

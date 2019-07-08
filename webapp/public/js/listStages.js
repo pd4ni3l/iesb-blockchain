@@ -32,8 +32,8 @@ function getStages() {
                                     <thead>
                                         <tr>
                                             <th scope="col">id</th>
-                                            <th scope="col">Produto</th>
-                                            <th scope="col">Preço</th>
+                                            <th scope="col">Nome do Paciente</th>
+                                            <th scope="col">CPF do Paciente</th>
                                         </tr>
                                     </thead>
                                     <tbody>

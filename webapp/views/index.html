@@ -6,9 +6,33 @@
 
     <!-- Bootstrap css -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#343c66",
+      "text": "#cfcfe8"
+    },
+    "button": {
+      "background": "transparent",
+      "text": "#f71559",
+      "border": "#f71559"
+    }
+  },
+  "position": "top",
+  "content": {
+    "message": "Este site utiliza cookies para melhorar a experiencia do usuário.",
+    "dismiss": "Ok",
+    "link": "Saiba mais."
+  }
+})});
+</script>
     <title>PoA Dapp</title>
     <script src="/js/login.js"></script>
+    
 </head>
 <body>
 

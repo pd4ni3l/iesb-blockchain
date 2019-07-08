@@ -216,7 +216,7 @@ contract MyContract {
 
     // função para adicionar produtos à um estágio
     function addToStage(uint[] memory _productsIds, string memory _stageDesc) public {
-        require(bytes(_stageDesc).length >= 1, "Name invalid");
+        require(bytes(_stageDesc).length >= 1, "Nome invalid");
         require(_productsIds.length > 0, "Price must be higher than zero");
 
         stages[stagesId] = Stage(stagesId, _productsIds, _stageDesc, msg.sender);
