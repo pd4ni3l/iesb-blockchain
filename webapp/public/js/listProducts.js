@@ -42,7 +42,7 @@ function getProducts() {
             }
             
         } else {
-            alert("Erro ao resgatar produtos do servidor. Por favor, tente novamente mais tarde. " + res.msg);
+            alert("Erro ao resgatar paciente do servidor. Por favor, tente novamente mais tarde. " + res.msg);
         }
 
     })

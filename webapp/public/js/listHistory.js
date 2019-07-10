@@ -28,11 +28,11 @@ function getHistory() {
                 
                         <div id="collapse${i}" class="collapse" aria-labelledby="heading${i}" data-parent="#accordionHistory">
                             <div class="card-body">
-                                <h6> Histórico do produto: </h6>
+                                <h6> Histórico do Paciente: </h6>
                                 <table id="historyList${i}" class="table table-dark">
                                     <thead>
                                         <tr>
-                                            <th scope="col">Etapa</th>
+                                            <th scope="col">Especialidade</th>
                                             <th scope="col">Owner</th>
                                             <th scope="col">Data</th>
                                         </tr>

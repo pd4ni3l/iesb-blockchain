@@ -24,7 +24,7 @@ function addToSelect() {
     $.get("/listProducts", function(res) {
         if (!res.error) {
             console.log("*** Public -> js -> addToHistory -> addToSelect: ***");
-            if (res.msg === "no products yet") {
+            if (res.msg === "no pacient yet") {
                 return;
             }
 
@@ -37,7 +37,7 @@ function addToSelect() {
                 }));
             });
         } else {
-            alert("Erro ao resgatar etapas do servidor. Por favor, tente novamente mais tarde. " + res.msg);
+            alert("Erro ao resgatar especialidade do servidor. Por favor, tente novamente mais tarde. " + res.msg);
         }
         
     }); 
@@ -58,7 +58,7 @@ function addToSelect() {
             });
             
         } else {
-            alert("Erro ao resgatar etapas do servidor. Por favor, tente novamente mais tarde. " + res.msg);
+            alert("Erro ao resgatar especialidade do servidor. Por favor, tente novamente mais tarde. " + res.msg);
         }
     })
 
@@ -105,7 +105,7 @@ function compare(event) {
         console.log(dataToServer);
         addToHistory(dataToServer);
     } else {
-        alert("Este produto não está registrado nesta etapa");
+        alert("Este paciente não está registrado nesta especialidade");
         $('#load').attr('disabled', false);
     }
 }

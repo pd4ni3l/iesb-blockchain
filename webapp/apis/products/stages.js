@@ -64,12 +64,12 @@ async function addStage(req, res) {
                 .then(response => {
                     console.log("etapa registrada com sucesso");
                     console.log(response);
-                    res.send({ error: false, msg: "Etapa registrada com sucesso"});        
+                    res.send({ error: false, msg: "Especialidade registrada com sucesso"});        
                 })
                 .catch(err => {
                     console.log("*** ERROR: products -> productsApi -> addProductToStage ***");
                     console.log(err);
-                    res.send({ error: true, msg: "Erro ao registrar etapa. Por favor, tente novamente mais tarde."});
+                    res.send({ error: true, msg: "Erro ao registrar especialidade. Por favor, tente novamente mais tarde."});
                 })
         })
         .catch(err => {
