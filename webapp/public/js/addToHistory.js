@@ -8,7 +8,7 @@ var dataToServer = {}
 window.addEventListener('load', function() {
     console.log("hello from addToHistory");
 
-    // carrega produtos e etapas para os selects
+    // carrega pacientes e etapas para os selects
     addToSelect();
 
     // resgata formulário select
@@ -17,7 +17,7 @@ window.addEventListener('load', function() {
     form.addEventListener('submit', compare);
 });
 
-// adicionar produtos e etapas ao select
+// adicionar pacientes e etapas ao select
 function addToSelect() {
 
     // resgata produtos e adiciona no select
@@ -33,7 +33,7 @@ function addToSelect() {
             produtos.forEach(function(produto) {
                 $('select#productSelect').append($('<option>', {
                     value: produto.id,
-                    text: produto.produto
+                    text: produto.nome
                 }));
             });
         } else {
